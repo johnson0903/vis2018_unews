@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.8/d3.min.js" type="text/JavaScript"></script>
+    <script type="text/javascript" src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
+    <meta charset="UTF-8">
+    <title>台灣空屋分析</title>
+</head>
+<body>
+<svg id="taiwan" width="600px" height="600px" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid"></svg>
+<script>
+    var reds = {
+        3: ["#fee0d2", "#fc9272", "#de2d26"],
+        4: ["#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"],
+        5: ["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"],
+        6: ["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#a50f15"],
+        7: ["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d"],
+        8: ["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272",
+            "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d"],
+        9: ["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a",
+            "#ef3b2c", "#cb181d", "#a50f15", "#67000d"]
+    };
+    let data = {};
+    d3.json("/data/LowElectricityUtilization_105.json", inputData => {
+        data = inputData.cities;
+        console.log(data)
+        d3.json("/data/county.topojson", drawTaiwan);
+
+        function drawTaiwan(topodata) {
+            let features = topojson.feature(topodata, topodata.objects.county).features;
+            let svg_taiwan = d3.select('#taiwan');
+            svg_taiwan.attr("transform", "translate(0, 10)");
+
+            // 設定空屋率資訊道properties
+            for (let i = 0; i < features.length; i++) {
+                features[i].properties.ratio = data[features[i].properties.C_Name].ratio;
+            }
+
+            // 空屋率顏色分佈
+            let ratioColorQScale = d3.scaleQuantile()
+              .domain([10,12,15]).range(reds[3]);
+
+
+            // 畫出台灣地圖
+            svg_taiwan.selectAll("path")
+              .data(features)
+              .enter().append("path")
+              .attr("d", d3.geoPath().projection(
+                d3.geoMercator()
+                  .center([121, 24])
+                  .scale(8000)))
+              .attr("stroke", "#67000d")
+              .attr("fill", function(d) {
+                return ratioColorQScale(d.properties.ratio);
+            });
+
+        }
+    });
+
+
+</script>
+</body>
+</html>

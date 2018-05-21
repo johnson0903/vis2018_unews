@@ -1,0 +1,90 @@
+{"cities":{
+  "新北市": {
+    "household": 118067,
+    "ratio": 7.60
+  },
+  "臺北市": {
+    "household": 60682,
+    "ratio": 6.82
+  },
+  "臺中市":{
+    "household": 96132,
+    "ratio": 9.69
+  },
+  "臺南市": {
+    "household": 66941,
+    "ratio": 10.01
+  },
+  "高雄市": {
+    "household": 110956,
+    "ratio": 10.72
+  },
+  "宜蘭縣": {
+    "household": 28791,
+    "ratio": 15.82
+  },
+  "桃園市": {
+    "household": 91752,
+    "ratio": 11.44
+  },
+  "新竹縣": {
+    "household": 22781,
+    "ratio": 11.70
+  },
+  "苗栗縣": {
+    "household": 24124,
+    "ratio": 12.68
+  },
+  "彰化縣": {
+    "household": 45919,
+    "ratio": 11.77
+  },
+  "南投縣": {
+    "household": 20257,
+    "ratio": 12.49
+  },
+  "雲林縣": {
+    "household": 33611,
+    "ratio": 14.38
+  },
+  "嘉義縣": {
+    "household": 24077,
+    "ratio": 14.16
+  },
+  "屏東縣": {
+    "household": 31220,
+    "ratio": 11.10
+  },
+  "臺東縣": {
+    "household": 12039,
+    "ratio": 14.14
+  },
+  "花蓮縣": {
+    "household": 17893,
+    "ratio": 13.93
+  },
+  "澎湖縣": {
+    "household": 3736,
+    "ratio": 11.73
+  },
+  "基隆市": {
+    "household": 19583,
+    "ratio": 12.04
+  },
+  "新竹市": {
+    "household": 17869,
+    "ratio": 10.70
+  },
+  "嘉義市": {
+    "household": 12843,
+    "ratio": 12.24
+  },
+  "金門縣": {
+    "household": 3281,
+    "ratio": 16.64
+  },
+  "連江縣": {
+    "household": 411,
+    "ratio": 15.50
+  }
+}}
