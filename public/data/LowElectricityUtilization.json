@@ -1,0 +1,404 @@
+{"cities": {
+  "105": {
+    "新北市": {
+      "household": 118067,
+      "ratio": 7.60,
+      "newEmptyHousehold": 14548,
+      "oldEmptyHousehold": 103519
+    },
+    "臺北市": {
+      "household": 60682,
+      "ratio": 6.82,
+      "newEmptyHousehold": 4878,
+      "oldEmptyHousehold": 55804
+    },
+    "臺中市":{
+      "household": 96132,
+      "ratio": 9.69,
+      "newEmptyHousehold": 8125,
+      "oldEmptyHousehold": 88007
+    },
+    "臺南市": {
+      "household": 66941,
+      "ratio": 10.01,
+      "newEmptyHousehold": 3779,
+      "oldEmptyHousehold": 63162
+    },
+    "高雄市": {
+      "household": 110956,
+      "ratio": 10.72,
+      "newEmptyHousehold": 12558,
+      "oldEmptyHousehold": 98398
+    },
+    "宜蘭縣": {
+      "household": 28791,
+      "ratio": 15.82,
+      "newEmptyHousehold": 1148,
+      "oldEmptyHousehold": 27643
+    },
+    "桃園市": {
+      "household": 91752,
+      "ratio": 11.44,
+      "newEmptyHousehold": 12928,
+      "oldEmptyHousehold": 78824
+    },
+    "新竹縣": {
+      "household": 22781,
+      "ratio": 11.70,
+      "newEmptyHousehold": 3566,
+      "oldEmptyHousehold": 19215
+    },
+    "苗栗縣": {
+      "household": 24124,
+      "ratio": 12.68,
+      "newEmptyHousehold": 2049,
+      "oldEmptyHousehold": 22075
+    },
+    "彰化縣": {
+      "household": 45919,
+      "ratio": 11.77,
+      "newEmptyHousehold": 1858,
+      "oldEmptyHousehold": 44061
+    },
+    "南投縣": {
+      "household": 20257,
+      "ratio": 12.49,
+      "newEmptyHousehold": 487,
+      "oldEmptyHousehold": 19770
+    },
+    "雲林縣": {
+      "household": 33611,
+      "ratio": 14.38,
+      "newEmptyHousehold": 801,
+      "oldEmptyHousehold": 32810
+    },
+    "嘉義縣": {
+      "household": 24077,
+      "ratio": 14.16,
+      "newEmptyHousehold": 504,
+      "oldEmptyHousehold": 23573
+    },
+    "屏東縣": {
+      "household": 31220,
+      "ratio": 11.10,
+      "newEmptyHousehold": 883,
+      "oldEmptyHousehold": 30337
+    },
+    "臺東縣": {
+      "household": 12039,
+      "ratio": 14.14,
+      "newEmptyHousehold": 104,
+      "oldEmptyHousehold": 11935
+    },
+    "花蓮縣": {
+      "household": 17893,
+      "ratio": 13.93,
+      "newEmptyHousehold": 400,
+      "oldEmptyHousehold": 17493
+    },
+    "澎湖縣": {
+      "household": 3736,
+      "ratio": 11.73,
+      "newEmptyHousehold": 12,
+      "oldEmptyHousehold": 3724
+    },
+    "基隆市": {
+      "household": 19583,
+      "ratio": 12.04,
+      "newEmptyHousehold": 1622,
+      "oldEmptyHousehold": 17961
+    },
+    "新竹市": {
+      "household": 17869,
+      "ratio": 10.70,
+      "newEmptyHousehold": 2394,
+      "oldEmptyHousehold": 15475
+    },
+    "嘉義市": {
+      "household": 12843,
+      "ratio": 12.24,
+      "newEmptyHousehold": 413,
+      "oldEmptyHousehold": 12430
+    },
+    "金門縣": {
+      "household": 3281,
+      "ratio": 16.64,
+      "newEmptyHousehold": 466,
+      "oldEmptyHousehold": 2815
+    },
+    "連江縣": {
+      "household": 411,
+      "ratio": 15.50,
+      "newEmptyHousehold": 0,
+      "oldEmptyHousehold": 411
+    }
+  },
+  "104": {
+    "新北市": {
+      "household": 118713,
+      "ratio": 7.72,
+      "newEmptyHousehold": 12023,
+      "oldEmptyHousehold": 106690
+    },
+    "臺北市": {
+      "household": 63890,
+      "ratio": 7.22,
+      "newEmptyHousehold": 4016,
+      "oldEmptyHousehold": 59874
+    },
+    "臺中市":{
+      "household": 97887,
+      "ratio": 10.02,
+      "newEmptyHousehold": 6677,
+      "oldEmptyHousehold": 91210
+    },
+    "臺南市": {
+        "household": 67117,
+      "ratio": 10.15,
+      "newEmptyHousehold": 3339,
+      "oldEmptyHousehold": 63778
+    },
+    "高雄市": {
+      "household": 111101,
+      "ratio": 10.86,
+      "newEmptyHousehold": 9262,
+      "oldEmptyHousehold": 101839
+    },
+    "宜蘭縣": {
+      "household": 28587,
+      "ratio": 15.98,
+      "newEmptyHousehold": 912,
+      "oldEmptyHousehold": 27675
+    },
+    "桃園市": {
+      "household": 89543,
+      "ratio": 11.49,
+      "newEmptyHousehold": 7852,
+      "oldEmptyHousehold": 81691
+    },
+    "新竹縣": {
+      "household": 21384,
+      "ratio": 11.34,
+      "newEmptyHousehold": 2735,
+      "oldEmptyHousehold": 18649
+    },
+    "苗栗縣": {
+      "household": 23142,
+      "ratio": 12.42,
+      "newEmptyHousehold": 1100,
+      "oldEmptyHousehold": 22042
+    },
+    "彰化縣": {
+      "household": 46915,
+      "ratio": 12.14,
+      "newEmptyHousehold": 1848,
+      "oldEmptyHousehold": 45067
+    },
+    "南投縣": {
+      "household": 20332,
+      "ratio": 12.63,
+      "newEmptyHousehold": 407,
+      "oldEmptyHousehold": 19925
+    },
+    "雲林縣": {
+      "household": 33830,
+      "ratio": 14.59,
+      "newEmptyHousehold": 662,
+      "oldEmptyHousehold": 33168
+    },
+    "嘉義縣": {
+      "household": 24557,
+      "ratio": 14.53,
+      "newEmptyHousehold": 530,
+      "oldEmptyHousehold": 24027
+    },
+    "屏東縣": {
+      "household": 31639,
+      "ratio": 11.35,
+      "newEmptyHousehold": 904,
+      "oldEmptyHousehold": 30735
+    },
+    "臺東縣": {
+      "household": 11811,
+      "ratio": 14.00,
+      "newEmptyHousehold": 72,
+      "oldEmptyHousehold": 11739
+    },
+    "花蓮縣": {
+      "household": 18150,
+      "ratio": 14.20,
+      "newEmptyHousehold": 289,
+      "oldEmptyHousehold": 17861
+    },
+    "澎湖縣": {
+      "household": 3808,
+      "ratio": 12.03,
+      "newEmptyHousehold": 21,
+      "oldEmptyHousehold": 3787
+    },
+    "基隆市": {
+      "household": 19125,
+      "ratio": 11.95,
+      "newEmptyHousehold": 282,
+      "oldEmptyHousehold": 18843
+    },
+    "新竹市": {
+      "household": 15331,
+      "ratio": 9.37,
+      "newEmptyHousehold": 2018,
+      "oldEmptyHousehold": 13313
+    },
+    "嘉義市": {
+      "household": 12656,
+      "ratio": 12.13,
+      "newEmptyHousehold": 304,
+      "oldEmptyHousehold": 12352
+    },
+    "金門縣": {
+      "household": 2792,
+      "ratio": 15.07,
+      "newEmptyHousehold": 333,
+      "oldEmptyHousehold": 2459
+    },
+    "連江縣": {
+      "household": 372,
+      "ratio": 14.67,
+      "newEmptyHousehold": 0,
+      "oldEmptyHousehold": 372
+    }
+  },
+  "103": {
+    "新北市": {
+      "household": 118963,
+      "ratio": 7.81,
+      "newEmptyHousehold": 8956,
+      "oldEmptyHousehold": 103519
+    },
+    "臺北市": {
+      "household": 64749,
+      "ratio": 7.34,
+      "newEmptyHousehold": 3190,
+      "oldEmptyHousehold": 103519
+    },
+    "臺中市":{
+      "household": 96750,
+      "ratio": 9.98,
+      "newEmptyHousehold": 4057,
+      "oldEmptyHousehold": 103519
+    },
+    "臺南市": {
+      "household": 66036,
+      "ratio": 10.08,
+      "newEmptyHousehold": 2206,
+      "oldEmptyHousehold": 103519
+    },
+    "高雄市": {
+      "household": 108825,
+      "ratio": 10.76,
+      "newEmptyHousehold": 6722,
+      "oldEmptyHousehold": 103519
+    },
+    "宜蘭縣": {
+      "household": 27641,
+      "ratio": 15.74,
+      "newEmptyHousehold": 418,
+      "oldEmptyHousehold": 103519
+    },
+    "桃園市": {
+      "household": 83962,
+      "ratio": 10.99,
+      "newEmptyHousehold": 4698,
+      "oldEmptyHousehold": 103519
+    },
+    "新竹縣": {
+      "household": 20557,
+      "ratio": 11.16,
+      "newEmptyHousehold": 2024,
+      "oldEmptyHousehold": 103519
+    },
+    "苗栗縣": {
+      "household": 22544,
+      "ratio": 12.25,
+      "newEmptyHousehold": 668,
+      "oldEmptyHousehold": 103519
+    },
+    "彰化縣": {
+      "household": 46823,
+      "ratio": 12.22,
+      "newEmptyHousehold": 1132,
+      "oldEmptyHousehold": 103519
+    },
+    "南投縣": {
+      "household": 20220,
+      "ratio": 12.66,
+      "newEmptyHousehold": 288,
+      "oldEmptyHousehold": 103519
+    },
+    "雲林縣": {
+      "household": 33593,
+      "ratio": 14.61,
+      "newEmptyHousehold": 488,
+      "oldEmptyHousehold": 103519
+    },
+    "嘉義縣": {
+      "household": 24472,
+      "ratio": 14.59,
+      "newEmptyHousehold": 502,
+      "oldEmptyHousehold": 103519
+    },
+    "屏東縣": {
+      "household": 31301,
+      "ratio": 11.34,
+      "newEmptyHousehold": 695,
+      "oldEmptyHousehold": 103519
+    },
+    "臺東縣": {
+      "household": 11884,
+      "ratio": 14.15,
+      "newEmptyHousehold": 47,
+      "oldEmptyHousehold": 103519
+    },
+    "花蓮縣": {
+      "household": 18340,
+      "ratio": 14.39,
+      "newEmptyHousehold": 168,
+      "oldEmptyHousehold": 103519
+    },
+    "澎湖縣": {
+      "household": 3783,
+      "ratio": 12.04,
+      "newEmptyHousehold": 22,
+      "oldEmptyHousehold": 103519
+    },
+    "基隆市": {
+      "household": 19935,
+      "ratio": 12.47,
+      "newEmptyHousehold": 228,
+      "oldEmptyHousehold": 103519
+    },
+    "新竹市": {
+      "household": 13940,
+      "ratio": 8.68,
+      "newEmptyHousehold": 1355,
+      "oldEmptyHousehold": 103519
+    },
+    "嘉義市": {
+      "household": 12897,
+      "ratio": 12.42,
+      "newEmptyHousehold": 179,
+      "oldEmptyHousehold": 103519
+    },
+    "金門縣": {
+      "household": 2295,
+      "ratio": 12.92,
+      "newEmptyHousehold": 198,
+      "oldEmptyHousehold": 103519
+    },
+    "連江縣": {
+      "household": 359,
+      "ratio": 14.56,
+      "newEmptyHousehold": 0,
+      "oldEmptyHousehold": 103519
+    }
+  }
+}}

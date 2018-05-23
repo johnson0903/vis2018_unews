@@ -6,42 +6,49 @@
     <meta charset="UTF-8">
     <title>台灣空屋分析</title>
 </head>
+<style>
+    body {
+        display: flex;
+    }
+
+</style>
 <body>
 <svg id="taiwan" width="600px" height="600px" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid"></svg>
+<div id="stack-bar-chart"></div>
 <script>
-    var reds = {
+    let reds = {
         3: ["#fee0d2", "#fc9272", "#de2d26"],
         4: ["#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"],
         5: ["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"],
         6: ["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#a50f15"],
         7: ["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d"],
-        8: ["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272",
-            "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d"],
-        9: ["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a",
-            "#ef3b2c", "#cb181d", "#a50f15", "#67000d"]
+        8: ["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d"],
+        9: ["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#a50f15", "#67000d"]
     };
-    let data = {};
-    d3.json("/data/LowElectricityUtilization_105.json", inputData => {
-        data = inputData.cities;
-        console.log(data)
+    let cities = {};
+    let currentYear = 105;
+
+    d3.json("/data/LowElectricityUtilization.json", inputData => {
+        cities = inputData.cities;
+
         d3.json("/data/county.topojson", drawTaiwan);
 
+        // 畫出台灣地圖
         function drawTaiwan(topodata) {
             let features = topojson.feature(topodata, topodata.objects.county).features;
             let svg_taiwan = d3.select('#taiwan');
             svg_taiwan.attr("transform", "translate(0, 10)");
 
-            // 設定空屋率資訊道properties
+            // 設定空屋率資訊到feature的properties
             for (let i = 0; i < features.length; i++) {
-                features[i].properties.ratio = data[features[i].properties.C_Name].ratio;
+                features[i].properties.info = cities[currentYear][features[i].properties.C_Name];
             }
 
             // 空屋率顏色分佈
             let ratioColorQScale = d3.scaleQuantile()
               .domain([10,12,15]).range(reds[3]);
 
-
-            // 畫出台灣地圖
+            // 畫出path、設定縮放大小和中心、設定邊線顏色和各個縣市分層設色
             svg_taiwan.selectAll("path")
               .data(features)
               .enter().append("path")
@@ -51,13 +58,99 @@
                   .scale(8000)))
               .attr("stroke", "#67000d")
               .attr("fill", function(d) {
-                return ratioColorQScale(d.properties.ratio);
-            });
+                return ratioColorQScale(d.properties.info.ratio)
+              })
+              .on("click", function (d) {
+                  showCityYearlyEmpytRatio(d.properties.C_Name);
+              })
+        }
 
+        // var xScale = d3.scaleBand().range([0, 700]).padding(0.1),
+        //   yScale = d3.scaleLinear().range([500,0]),
+        //   color = d3.scaleOrdinal(["#fee0d2", "#de2d26"]),
+        //   xAxis = d3.axisBottom(xScale),
+        //   yAxis = d3.axisLeft(yScale),
+        //   stackBarChartSvg = d3.select("#stack-bar-chart")
+        //     .append("svg")
+        //     .attr("width", 800)
+        //     .attr("height", 500)
+        //     .append("g")
+
+
+        function showCityYearlyEmpytRatio(cityName) {
+            let cityYearsData = [];
+            for (let year = 104; year <= 105; year++) {
+                let yearData = {
+                    "year": year,
+                    "newEmptyHousehold": cities[year][cityName].newEmptyHousehold,
+                    "oldEmptyHousehold": cities[year][cityName].oldEmptyHousehold,
+                    "household": cities[year][cityName].household
+                }
+                cityYearsData.push(yearData);
+            }
+
+            var initStackedBarChart = {
+                draw: function(config) {
+                    me = this,
+                      domEle = config.element,
+                      margin = {top: 20, right: 20, bottom: 30, left: 50},
+                      width = 300 - margin.left - margin.right,
+                      height = 200 - margin.top - margin.bottom,
+                      xScale = d3.scaleBand().range([0, width]).padding(0.1),
+                      yScale = d3.scaleLinear().range([height, 0]),
+                      xAxis = d3.axisBottom(xScale),
+                      yAxis =  d3.axisLeft(yScale),
+                      svg = d3.select("#"+domEle).append("svg")
+                        .attr("width", width + margin.left + margin.right)
+                        .attr("height", height + margin.top + margin.bottom)
+                        .append("g")
+                        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                    let color = d3.scaleOrdinal(d3.schemeCategory20)
+                    var stack = d3.stack()
+                      .keys(["newEmptyHousehold", "oldEmptyHousehold"])
+                      //.keys(stackKey)
+                      .order(d3.stackOrderNone)
+                      .offset(d3.stackOffsetNone);
+
+                    var layers = stack(cityYearsData);
+                    console.log(layers)
+                    //data.sort(function(a, b) { return b.total - a.total; });
+                    xScale.domain(cityYearsData.map(function(d) { return d.year; }));
+                    yScale.domain([0, d3.max(layers[layers.length - 1], function(d) { return d[0] + d[1]; }) ]).nice();
+                    //yScale.domain([0, height]);
+
+
+                    var layer = svg.selectAll(".layer")
+                      .data(layers)
+                      .enter().append("g")
+                      .attr("class", "layer")
+                      .style("fill", function(d, i) { return color(i); });
+
+                    layer.selectAll("rect")
+                      .data(function(d) { return d; })
+                      .enter().append("rect")
+                      .attr("x", function(d) { return xScale(d.data.year); })
+                      .attr("y", function(d) { return yScale(d[1]); })
+                      .attr("height", function(d) { console.log(d); return  yScale(d[0]) - yScale(d[1]); })
+                      .attr("width", xScale.bandwidth());
+
+                    svg.append("g")
+                      .attr("class", "axis axis--x")
+                      .attr("transform", "translate(0," + (height+5) + ")")
+                      .call(xAxis);
+
+                    svg.append("g")
+                      .attr("class", "axis axis--y")
+                      .attr("transform", "translate(0,0)")
+                      .call(yAxis);
+                }
+            }
+
+            initStackedBarChart.draw({
+                element: 'stack-bar-chart'
+            });
         }
     });
-
-
 </script>
 </body>
 </html>
