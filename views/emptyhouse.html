@@ -63,11 +63,19 @@
               .center([121, 24])
               .scale(8000)))
           .attr("stroke", "#67000d")
+          .attr("stroke-width", 1)
           .attr("fill", function(d) {
               return ratioColorQScale(d.properties.info.ratio)
           })
           .on("click", function (d) {
               showDetailInfo(d.properties.C_Name);
+          })
+          .on("mouseover", function (d,i) {
+              d3.select(this).attr("stroke-width", 3)
+              this.style.cursor="pointer"
+          })
+          .on("mouseleave", function (d,i) {
+              d3.select(this).attr("stroke-width", 1)
           })
 
         var taiwanLegend = svg_taiwan.selectAll(".taiwanLegend")
@@ -130,6 +138,7 @@
           .attr("x", 80)
           .text("戶數")
           .style("font-size", "10px")
+
         let newEmptyLineChartSVG = d3.select("#new-empty-line-chart");
         newEmptyLineChartSVG.append("text")
           .attr("text-anchor", "end")
@@ -144,6 +153,7 @@
           .attr("x", 80)
           .text("戶數")
           .style("font-size", "10px")
+
         let cityData = [];
 
         // 設定選好的縣市的空屋資料
@@ -200,6 +210,14 @@
         }
 
         function drawNewEmptyLine() {
+            newEmptyLineChartSVG.append("text")
+              .attr("class", "text-title")
+              .attr("text-anchor", "end")
+              .attr("y",20)
+              .attr("x", 280)
+              .text(cityName + "歷年新建餘屋戶數")
+              .style("font-size", "16px")
+
             newEmptyLineChartSVG
               .attr("width", width + margin.left + margin.right)
               .attr("height", height + margin.top + margin.bottom)
@@ -232,6 +250,15 @@
         }
 
         function drawOldEmptyLine() {
+
+            oldEmptyLineChartSVG.append("text")
+              .attr("class", "text-title")
+              .attr("text-anchor", "end")
+              .attr("y",20)
+              .attr("x", 280)
+              .text(cityName + "歷年舊空屋數")
+              .style("font-size", "16px")
+
             oldEmptyLineChartSVG
               .attr("width", width + margin.left + margin.right)
               .attr("height", height + margin.top + margin.bottom)
@@ -264,6 +291,12 @@
         }
 
         function updateLine() {
+
+            oldEmptyLineChartSVG.select(".text-title")
+              .text(cityName + "歷年舊空屋數")
+
+            newEmptyLineChartSVG.select(".text-title")
+              .text(cityName + "歷年新建餘屋數")
 
             // 更新y軸資料範圍
             oldEmptyYScale.domain(d3.extent(cityData, d => d.oldEmptyHousehold))
