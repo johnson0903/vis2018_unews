@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12a0f6a3-4dba-4f5e-ac11-01c7919dfec3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/views/emptyhouse.html" afterPath="$PROJECT_DIR$/views/emptyhouse.html" />
-    </list>
+    <list default="true" id="12a0f6a3-4dba-4f5e-ac11-01c7919dfec3" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -16,11 +14,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="emptyhouse.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="emptyhouse.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/emptyhouse.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="171" column="29" lean-forward="false" selection-start-line="171" selection-start-column="29" selection-end-line="171" selection-end-column="29" />
+            <state relative-caret-position="341">
+              <caret line="153" column="53" lean-forward="true" selection-start-line="153" selection-start-column="53" selection-end-line="153" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index2.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/index2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,6 +97,7 @@
       <find>411</find>
       <find>tooltip</find>
       <find>ratioColorQScale</find>
+      <find>mousele</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,6 +130,7 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/data/LowElectricityUtilization.json" />
         <option value="$PROJECT_DIR$/views/emptyhouse.html" />
+        <option value="$PROJECT_DIR$/views/index2.html" />
       </list>
     </option>
   </component>
@@ -209,6 +219,11 @@
               <item name="vis2018_unews" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="vis2018_unews" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vis2018_unews" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -269,12 +284,12 @@
       <workItem from="1526387671088" duration="5813000" />
       <workItem from="1526433946528" duration="25595000" />
       <workItem from="1526890427912" duration="34000" />
-      <workItem from="1526890540037" duration="62892000" />
+      <workItem from="1526890540037" duration="64395000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95792000" />
+    <option name="totallyTimeSpent" value="97295000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -322,14 +337,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/chapter4/4_08.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/data/worldcup.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -682,8 +689,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/emptyhouse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="171" column="29" lean-forward="false" selection-start-line="171" selection-start-column="29" selection-end-line="171" selection-end-column="29" />
+        <state relative-caret-position="341">
+          <caret line="153" column="53" lean-forward="true" selection-start-line="153" selection-start-column="53" selection-end-line="153" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
