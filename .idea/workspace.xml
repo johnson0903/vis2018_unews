@@ -19,8 +19,8 @@
       <file leaf-file-name="emptyhouse.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/emptyhouse.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="173" column="31" lean-forward="false" selection-start-line="173" selection-start-column="31" selection-end-line="173" selection-end-column="31" />
+            <state relative-caret-position="-102">
+              <caret line="171" column="29" lean-forward="false" selection-start-line="171" selection-start-column="29" selection-end-line="171" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -88,6 +88,7 @@
       <find>新建</find>
       <find>411</find>
       <find>tooltip</find>
+      <find>ratioColorQScale</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -268,12 +269,12 @@
       <workItem from="1526387671088" duration="5813000" />
       <workItem from="1526433946528" duration="25595000" />
       <workItem from="1526890427912" duration="34000" />
-      <workItem from="1526890540037" duration="59206000" />
+      <workItem from="1526890540037" duration="62892000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92106000" />
+    <option name="totallyTimeSpent" value="95792000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -681,8 +682,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/emptyhouse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="173" column="31" lean-forward="false" selection-start-line="173" selection-start-column="31" selection-end-line="173" selection-end-column="31" />
+        <state relative-caret-position="-102">
+          <caret line="171" column="29" lean-forward="false" selection-start-line="171" selection-start-column="29" selection-end-line="171" selection-end-column="29" />
           <folding />
         </state>
       </provider>
