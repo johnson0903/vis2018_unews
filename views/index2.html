@@ -6,9 +6,143 @@
     <title>Title</title>
     <!-- bootstrap css settings-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.8/d3.min.js" type="text/JavaScript"></script>
+    <script type="text/javascript" src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
+    <style>
+        #bg-image {
+            opacity: 1;
+            background-attachment:fixed;
+            background-position: center;
+        }
+        p {
+            font-size: 18px;
+        }
+        .blog-post {
+            margin-bottom: 4rem;
+        }
+        .blog-post-title {
+            margin-bottom: .25rem;
+            font-size: 2.5rem;
+        }
+        .blog-post-meta {
+            margin-bottom: 1.25rem;
+            color: #999;
+        }
+        .blog-footer {
+            padding: 2.5rem 0;
+            color: #999;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-top: .05rem solid #e5e5e5;
+        }
+        .blog-footer p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
-
 <body>
+<div class="container">
+
+    <div class="jumbotron p-3 p-md-5 rounded d-flex justify-content-center" id="bg-image" style="background-image: url(images/house.png)">
+        <div class="col-md-10 px-3" style="background-color: rgba(255,255,255,0.7); padding: 5px">
+            <h1 class="px-3 pt-3">打破空屋迷思，是問題還是警訊？</h1>
+            <p class="lead my-3 px-3">華人社會中，「有房才有家」的傳統觀念深植人心，多數人都希望在累積一定積蓄後，擁有一間屬於自己的房子。 然而，根據內政部營建署統計資料顯示，台灣平均每十間住宅就有一戶無人居住，以比例來說離島、彰雲嘉一帶與東部縣市空屋率最高；單以空屋數量來看六都佔了全台超過60%的空屋。究竟在台灣，空屋是否是一個亟需被處理的問題？空屋率又能讓我們看到什麼其他社會現象呢？</p>
+            <p class="lead mb-0 font-weight-bold">【專題記者謝佩旻、李卓朗、曾楷傑綜合報導】</p>
+        </div>
+    </div>
+
+<main role="main" class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-8 blog-main">
+
+            <div class="blog-post">
+                <p class="blog-post-meta">June 1, 2018 by <a href="http://www.unews.nccu.edu.tw/">NCCU UONLINE NEWS</a></p>
+                <hr>
+
+                <h2 class="mb-4">全台空屋數居高不下，如何保障「住」的權利？</h2>
+                <p>台灣的空屋數量長期維持在80萬以上，尤其在六都，因現今的房貸利率較低，許多屋主或投資客會把房子當成商品炒作，讓房價居高不下，進而產生土地規劃、居住正義等問題。以台北市為例，目前空屋數量約6萬多戶，市府為健全房市，同時保障人民的居住權利，已著手訂定清查空屋稅率政策，希望能以此來降低空屋數量。</p>
+                <p>根據內政部營建署去年公布的「105年度低度使用住宅及新建餘屋資訊統計分析」，所謂「低度使用（用電）住宅」，是以房屋稅籍資料與台電用電資料，將每年11、12月平均用電度數低於60度的住宅（約等於每天開冰箱兩小時的用電量），認定為低度使用住宅，俗稱「空屋」。依據這個定義，全國空屋數量高達86萬宅、空屋率10.22％；其中，六都空屋數合計超過54萬宅，占全國空屋數63.1％，以新北、高雄的空屋超過11萬宅最多，其餘均未超過十萬宅。</p>
+                <p>空屋可大致分為兩類，一類是五年內尚未售出的新開發建案，被稱為新建餘屋（註1）；剩下的非新建餘屋，其中包括長年無人居住的舊屋以及經過交易轉手後的低度使用住宅。透過圖表可以看出105年全台各縣市的空屋率統計數字，也能得知101到105年各縣市新建餘屋與非新建餘屋的逐年變化。全國空屋數量最多的前六名皆分布於六都，依序為新北、高雄、台中、桃園、台南及台北；至於空屋率前六名則以離島和非直轄市較高，依序為金門縣16.64％、宜蘭縣15.8％、連江縣15.5％、雲林縣14.38％、嘉義縣14.16％及台東縣14.14％。</p>
+                <p><em>註1：住宅市場上，在興建與完成第一次登記之後，首次進入市場有銷售可能而未售出的住宅，且為低度使用（用電）住宅的一部份。</em></p>
+                <p>調查計畫主持人、景文科技大學財務金融系副教授章定煊指出，台灣的空屋率與世界各國相比確實較高。同時因為台灣的房價依照一般人的薪水，可能無法負擔買房的重擔，這導致房產成為投資客與有錢人才玩得起的投資商品，忽略了房子作為居住空間的基本權利。台北大學不動產與城鄉環境學系副教授游舜德也認為若長期來看，過多的空屋也反映出台灣民眾買不起房子的事實，若要保障人民的居住權利，政府應該設法解決空屋率過高的現象。</p>
+
+                <h2 class="mb-4">空屋原因各地有別　房價影響空屋數量？</h2>
+                <p>除了離島區域，台灣本島空屋率最高的三個地區分別為宜蘭縣、雲林縣以及嘉義縣，由於皆屬農業發達的縣市，許多人考量生活便利性而選擇到附近的大都市謀生，進而使得原先的舊房子沒人居住，衍生出空屋問題。章定煊認為由於台灣地型多變，都市的發展也不像國外以同心圓方式向外擴張，再加上商業考量之下，選擇在都市集中開發，與此同時也拉大了城鄉之間的差距。</p>
+                <p>游舜德表示，非直轄市缺乏充足的工作機會和適當的生活條件，導致當地人口不願留下，更沒有吸引外縣市人口的誘因。建商在沒有利潤可圖之下，選擇在六都等大都市興建房屋，這些商業機能薄弱的縣市便留下許多無人居住的舊屋。住商不動產企劃研究室主任徐佳馨表示，有些案例中的業主是承繼了過世親人留下的偏鄉房屋，但因為長期在都市工作而閒置，有些甚至因老舊而無法居住。</p>
+                <p>相較於偏鄉地區生活機能不足導致空屋率偏高，六都內的新興重劃區則是因為不斷有新建案的出現，供應大於需求，因此整體新建餘屋數量呈現逐年成長的情況。以新北市的「淡海新市鎮」為例，根據營建署「105年度低度使用住宅及新建餘屋資訊統計分析」，自民國100年以來新建餘屋中，到105年底仍有16.9％的房子無人居住；同一時段中，桃園的「高速鐵路桃園站特定區」（後文簡稱青埔特區）更有超過20％的住宅為空屋。</p>
+                <p>「當人口遷入的速度比不上建案推出的速度便形成供過於求」，章定煊認為開發速度太快是造成這些重劃區空屋數過多的主因。其次是政府在鼓勵建商開發重劃區時，該地的商業機能尚未健全，雖然六都內的重劃區週邊皆有便利的交通，但缺乏產業、公共投資等機能，自然影響民眾購屋的意願。游舜德則認為一個地區的發展，應該要先建立起週邊的生活及商業機能，再新建住宅區吸引人口遷入，但台灣的做法卻正好相反，他表示這些重劃區還需要發展的時間，「像北大特區也是花了十年左右才長成現在這個樣子。」</p>
+                <!--<pre><code>Example code block</code></pre>-->
+                <p>章定煊還提及，一般民眾偏好樓層、坪數適中的房屋，因此建商的房屋設計也會影響到民眾的購買意願。在青埔特區購置房產的朱承天表示，當初因住在青埔附近，加上偏好居住於開闊的地方，便選擇購入當地的房屋自住或投資。他認為青埔內的社區素質參差不齊，導致不同社區的入住率也各不相同，部分建商的房屋建築設計缺乏美感，感覺比較老舊，甚至還有一些房屋來自「一案建商」（註2），與大型建設公司相比，較難保障民眾購屋後的權益。</p>
+                <p><em>註2：公司成立後僅完成一個建案即解散的建商公司。</em></p>
+                <p>另一方面，青埔內有許多農地經過重劃後成為建地。然而，把這批建地上的房子作為住宅用途，格局卻不太實用，朱承天說：「這些房子的面闊只有5.5米，深2、30米，都是很難使用的窄窄的套廳，這批房子在青埔各地也都不怎麼樣。」這些都是導致青埔空屋率高的原因。</p>
+                <p>青埔特區屬國家級重劃區，當初為配合高鐵興建而設立，然而在生活機能方面卻仍有待改善。朱承天表示，青埔包括郵局在內的金融機構欠缺，醫療診所甚至餐廳、小吃店與超市都比較缺乏。近兩年雖然問題已逐漸改善，但他認為政府不應僅設立美術館、流行音樂中心等人文設施，也應將桃園市政府外圍單位的工作機會移至青埔，並以商業機制獎勵鼓勵商人進入青埔投資，從而提升當地的生活機能。</p>
+                <p>根據營建署「105年度低度使用住宅及新建餘屋資訊統計分析」，可以發現台北市空屋數量在六都當中敬陪末座，空屋率更是全國最低。對此章定煊表示，台北市土地利用已接近飽和，加上住宅市場供不應求，低空屋率是正常現象。但也因為待出售的房屋不多，房價水漲船高，一般民眾幾乎無法出手購買，游舜德說：「大家是買不起雙北的房子，但到其他縣市購屋其實是可以負擔得起的。」</p>
+                <p>由於政經資源和就業機會集中在雙北，因此台北及新北只有約7%左右的空屋，反之金門縣的空屋率就高達16.64%。</p>
+
+                <h2 class="mb-4">改善空屋情形　市場自由與居住正義的角力</h2>
+                <p>面對都市內空屋過多，產生一人多屋的情形，章定煊坦言現行的民主政府為了尊重市場機制，其實無法做出太多的干預，他說：「最有效率的政府是集權政府，一到命令下來就可以把事情解決。」儘管如此，為了保障社會經濟弱勢者及無力購屋民眾的居住權利，政府除了廣設社會住宅，也透過實價登錄（註1）將房價透明化，另外還試辦包租代管方案（註2），希望將空屋帶來的影響降至最低。</p>
+                <p><em>註1：為「不動產成交案件實際資訊申報登錄」的簡稱，顧名思意就是將不動產實際的交易價格，登錄於內政部所屬的地政機關網上，在2012年8月1日起正式上路後，未來不論買賣住宅、店面或土地等，都得將實際價格一一登錄於網站上。</em></p>
+
+                <h3>Sub-heading</h3>
+                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+            </div><!-- /.blog-post -->
+
+            <nav class="blog-pagination">
+                <a class="btn btn-outline-primary" href="#">Older</a>
+                <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+            </nav>
+
+        </div><!-- /.blog-main -->
+
+        <!--<aside class="col-md-4 blog-sidebar">-->
+            <!--<div class="p-3 mb-3 bg-light rounded">-->
+                <!--<h4 class="font-italic">About</h4>-->
+                <!--<p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>-->
+            <!--</div>-->
+
+            <!--<div class="p-3">-->
+                <!--<h4 class="font-italic">Archives</h4>-->
+                <!--<ol class="list-unstyled mb-0">-->
+                    <!--<li><a href="#">March 2014</a></li>-->
+                    <!--<li><a href="#">February 2014</a></li>-->
+                    <!--<li><a href="#">January 2014</a></li>-->
+                    <!--<li><a href="#">December 2013</a></li>-->
+                    <!--<li><a href="#">November 2013</a></li>-->
+                    <!--<li><a href="#">October 2013</a></li>-->
+                    <!--<li><a href="#">September 2013</a></li>-->
+                    <!--<li><a href="#">August 2013</a></li>-->
+                    <!--<li><a href="#">July 2013</a></li>-->
+                    <!--<li><a href="#">June 2013</a></li>-->
+                    <!--<li><a href="#">May 2013</a></li>-->
+                    <!--<li><a href="#">April 2013</a></li>-->
+                <!--</ol>-->
+            <!--</div>-->
+
+            <!--<div class="p-3">-->
+                <!--<h4 class="font-italic">Elsewhere</h4>-->
+                <!--<ol class="list-unstyled">-->
+                    <!--<li><a href="#">GitHub</a></li>-->
+                    <!--<li><a href="#">Twitter</a></li>-->
+                    <!--<li><a href="#">Facebook</a></li>-->
+                <!--</ol>-->
+            <!--</div>-->
+        <!--</aside>&lt;!&ndash; /.blog-sidebar &ndash;&gt;-->
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+<footer class="blog-footer">
+    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
 
 
 <!-- bootstrap js settings-->
