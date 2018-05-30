@@ -24,7 +24,8 @@
     }
 </style>
 <body>
-<!--<button onclick="drawTaiwanEmptyHousehold()">empty</button>-->
+<button onclick="drawTaiwanEmptyHousehold()">household</button>
+<button onclick="drawTaiwanRatio()">ratio</button>
 <svg id="taiwan" width="600px" height="600px" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid"></svg>
 <div>
     <svg id="old-empty-line-chart"></svg>
@@ -41,70 +42,80 @@
         8: ["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d"],
         9: ["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#a50f15", "#67000d"]
     };
-    let cities = {};
+    let cities;
     let currentYear = 105;
     var tooltip = d3.select("body").append("div")
       .attr("class", "tooltip")
       .style("opacity", 0)
+    var features;
 
     // 讀取空屋資料
     d3.json("/data/LowElectricityUtilization.json", inputData => {
         cities = inputData.cities;
-        d3.json("/data/county.topojson", drawTaiwanRatio);
+
+        // 畫出台灣地圖
+        d3.json("/data/county.topojson", drawTaiwanMap);
     });
 
-    // // 台灣空屋數地圖
-    // function drawTaiwanEmptyHousehold() {
-    //     let svg_taiwan = d3.select("#taiwan")
-    //     let emptyHouseholdColorQScale = d3.scaleQuantile()
-    //       .domain([0, 10000, 50000, 100000, 150000]).range(reds[4]);
-    //
-    //     svg_taiwan.selectAll("path")
-    //       .attr("fill", function (d) {
-    //         return emptyHouseholdColorQScale(d.properties.info.household)
-    //       })
-    //
-    //     let taiwanLegend = svg_taiwan.selectAll(".taiwanLegend")
-    //       .data(emptyHouseholdColorQScale.domain())
-    //       .enter().append("g")
-    //       .attr("class", "taiwanLegend")
-    //       .attr("transform", function (d, i) {
-    //           return "translate(600," + (i * 25 - 80) + ")"
-    //       })
-    //
-    //     taiwanLegend.update('text')
-    //       .attr("x", 30)
-    //       .attr("y", 15)
-    //       .text(function (d, i) {
-    //           if (d <= 10000 ){
-    //               return "1萬以下"
-    //           } else if (d <= 50000) {
-    //               return "1萬-5萬"
-    //           }
-    //           else  if (d<=100000){
-    //               return "5萬-10萬"
-    //           }
-    //           else {
-    //               return "10萬以上"
-    //           }
-    //       })
-    //       .attr("class", "textselected")
-    //       .style("text-anchor", "start")
-    //       .style("font-size", 16)
-    //
-    //     taiwanLegend.select('rect')
-    //       .attr("x", 0)
-    //       .attr("y", 0)
-    //       .attr("width", 20)
-    //       .attr("height", 20)
-    //       .style("fill", function (d) {
-    //           return emptyHouseholdColorQScale(d)
-    //       })
-    // }
+    // 台灣空屋數地圖
+    function drawTaiwanEmptyHousehold() {
+        isButtonClick = true
+        let svg_taiwan = d3.select("#taiwan")
 
-    // 台灣縣市空屋比例地圖
-    function drawTaiwanRatio(topodata) {
-        let features = topojson.feature(topodata, topodata.objects.county).features;
+        svg_taiwan.selectAll("path")
+          .attr("fill", function (d) {
+            if (d.properties.info.household < 20000){
+                return "#9EC4ED"
+            } else if (d.properties.info.household < 60000){
+                return "#4d7cae"
+            } else {
+                return "#375a7f"
+            }
+          })
+
+        let taiwanLegend = svg_taiwan.selectAll(".taiwanLegend")
+          .data([0,20000,60000])
+          .attr("transform", function (d, i) {
+              console.log(d)
+              return "translate(600," + (i * 25 - 80) + ")"
+          })
+
+        taiwanLegend.select('text')
+          .attr("x", 30)
+          .attr("y", 15)
+          //.attr("dy", ".35em")
+          .text(function (d, i) {
+              if (i == 0 ){
+                  return "<20000"
+              } else if (i == 1) {
+                  return "20000~60000"
+              }
+              else {
+                  return ">60000"
+              }
+          })
+          .attr("class", "textselected")
+          .style("text-anchor", "start")
+          .style("font-size", 16)
+
+        taiwanLegend.select('rect')
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("width", 20)
+          .attr("height", 20)
+          .style("fill", function (d, i) {
+              if (i==0){
+                  return "#9EC4ED"
+              } else if (i==1){
+                  return "#4d7cae"
+              } else {
+                  return "#375a7f"
+              }
+          })
+    }
+
+    function drawTaiwanMap(topodata) {
+        features = topojson.feature(topodata, topodata.objects.county).features;
         let svg_taiwan = d3.select('#taiwan');
         svg_taiwan.attr("transform", "translate(0, 10)");
 
@@ -113,11 +124,6 @@
             features[i].properties.info = cities[currentYear][features[i].properties.C_Name];
         }
 
-        // 空屋率顏色分佈
-        let ratioColorQScale = d3.scaleQuantile()
-          .domain([6,12,15]).range(reds[3]);
-        console.log(ratioColorQScale.quantiles())
-        // 畫出path、設定縮放大小和中心、設定邊線顏色和各個縣市分層設色
         svg_taiwan.selectAll("path")
           .data(features)
           .enter().append("path")
@@ -127,6 +133,20 @@
               .scale(8000)))
           .attr("stroke", "#67000d")
           .attr("stroke-width", 1)
+          .attr("fill", "white")
+        drawTaiwanRatio()
+    }
+    var isButtonClick = false
+    // 台灣縣市空屋比例地圖
+    function drawTaiwanRatio() {
+        let svg_taiwan = d3.select('#taiwan');
+
+        // 空屋率scale
+        let ratioColorQScale = d3.scaleQuantile()
+          .domain([6,12,15]).range(reds[3]);
+
+        // 畫出path、設定縮放大小和中心、設定邊線顏色和各個縣市分層設色
+        svg_taiwan.selectAll("path")
           .attr("fill", function(d) {
               return ratioColorQScale(d.properties.info.ratio)
           })
@@ -134,8 +154,8 @@
               showDetailInfo(d.properties.C_Name);
           })
           .on("mouseover", function (d,i) {
-              d3.select(this).attr("stroke-width", 2)
-              this.style.cursor="pointer"
+              d3.select(this).attr("stroke-width", 2);
+              this.style.cursor="pointer";
 
               // 設定 tooltip
               let household = d.properties.info.household
@@ -155,6 +175,40 @@
               tooltip.style("opacity", 0)
           })
 
+        if (isButtonClick == true){
+            let taiwanLegend = svg_taiwan.selectAll(".taiwanLegend")
+              .data(ratioColorQScale.domain())
+              .attr("transform", function (d, i) {
+                  return "translate(600," + (i * 25 - 80) + ")"
+              })
+
+            taiwanLegend.select('text')
+              .attr("x", 30)
+              .attr("y", 15)
+              //.attr("dy", ".35em")
+              .text(function (d, i) {
+                  if (d <= 6 ){
+                      return "小於 10%"
+                  } else if (d <= 12) {
+                      return "10 ~ 13%"
+                  }
+                  else {
+                      return "大於 13%"
+                  }
+              })
+              .attr("class", "textselected")
+              .style("text-anchor", "start")
+              .style("font-size", 16)
+
+            taiwanLegend.select('rect')
+              .attr("x", 0)
+              .attr("y", 0)
+              .attr("width", 20)
+              .attr("height", 20)
+              .style("fill", function (d, i) {
+                  return ratioColorQScale(d)
+              })
+        }
         let taiwanLegend = svg_taiwan.selectAll(".taiwanLegend")
           .data(ratioColorQScale.domain())
           .enter().append("g")
@@ -168,7 +222,7 @@
           .attr("y", 15)
           //.attr("dy", ".35em")
           .text(function (d, i) {
-              if (d <= 10 ){
+              if (d <= 6 ){
                   return "小於 10%"
               } else if (d <= 12) {
                   return "10 ~ 13%"
@@ -190,6 +244,8 @@
               return ratioColorQScale(d)
           })
     }
+
+
     var isClicked = false
 
     var margin = {top: 30, right: 20, bottom: 30, left: 50},
@@ -292,7 +348,7 @@
               .attr("text-anchor", "end")
               .attr("y",20)
               .attr("x", 280)
-              .text(cityName + "歷年新建餘屋戶數")
+              .text(cityName + "歷年新建餘屋數")
               .style("font-size", "18px")
 
             newEmptyLineChartSVG
@@ -333,7 +389,7 @@
               .attr("text-anchor", "end")
               .attr("y",20)
               .attr("x", 280)
-              .text(cityName + "歷年舊空屋數")
+              .text(cityName + "歷年非新建數")
               .style("font-size", "18px")
 
             oldEmptyLineChartSVG
@@ -370,7 +426,7 @@
         function updateLine() {
 
             oldEmptyLineChartSVG.select(".text-title")
-              .text(cityName + "歷年舊空屋數")
+              .text(cityName + "歷年非新建數")
 
             newEmptyLineChartSVG.select(".text-title")
               .text(cityName + "歷年新建餘屋數")
